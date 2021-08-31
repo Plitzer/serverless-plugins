@@ -29,7 +29,7 @@ custom:
   serverless-apigateway-access-logs:
     format: '{ "requestId":"$context.requestId", "ip": "$context.identity.sourceIp", "caller":"$context.identity.caller", "user":"$context.identity.user","requestTime":"$context.requestTime", "httpMethod":"$context.httpMethod","resourcePath":"$context.resourcePath", "status":"$context.status","protocol":"$context.protocol", "responseLength":"$context.responseLength" }'
     log-group: /aws/my-api/${self:provider.stage}/access-logs
-    log-group-retention: 14 # optional, default to 7
+    log-group-retention: 14 # optional, if not specified the default behaviour is that the logs will never expire
 ```
 
 You can also additionnaly add a `stageTags` mapping to have some tags attached to the API gateway stage.
